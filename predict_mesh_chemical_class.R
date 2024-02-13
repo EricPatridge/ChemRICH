@@ -136,7 +136,6 @@ predict_mesh_classes  <- function(inputfile = "nameoftheinputfile") {
                 }
               }
           }
-          }     
           
           # if(elecount['O']>=3) { ## Put Rules here. How many O and then how many carbon chain. That will make the class.
           #   if( length(grep("C1",x))==1) {
@@ -158,7 +157,7 @@ predict_mesh_classes  <- function(inputfile = "nameoftheinputfile") {
           #       }
           #     }
           #   }
-          }
+          # }
         }
       }
     }
