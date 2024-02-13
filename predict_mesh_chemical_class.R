@@ -94,12 +94,14 @@ predict_mesh_classes  <- function(inputfile = "nameoftheinputfile") {
     if (length(table(c("c","o")%in%tolower(names(elecount))  )  )==1) {
       if(length(grep("n",x,ignore.case = T))==0) {
         if (elecount['C']>7 & length(grep("CCCC",x))==1 & length(grep("C2",x))!=1  ) { # long carbon but not aromatic or cyclic.
+          
           if (is.na(elecount['O'])) { 
             print("Number is : NA") 
-          }else{ 
+          } else { 
             dlen <- length(strsplit(x,"=")[[1]])-2
             falabel <- paste(c("FA",elecount['C'],dlen), collapse="_")
           }     
+          
           # if (elecount['O']==2) {
           #   print(x)
           #   dlen <- length(strsplit(x,"=")[[1]])-2
@@ -107,6 +109,7 @@ predict_mesh_classes  <- function(inputfile = "nameoftheinputfile") {
           #   falabel <- paste(c("FA",elecount['C'],dlen), collapse="_")
           #   print(falabel)
           # }
+          
           if(elecount['O']>=3) { ## Put Rules here. How many O and then how many carbon chain. That will make the class.
             if( length(grep("C1",x))==1) {
               if (length(strsplit(x,"C1")[[1]]) ==3 ) {
