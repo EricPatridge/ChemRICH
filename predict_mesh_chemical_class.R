@@ -94,7 +94,9 @@ predict_mesh_classes  <- function(inputfile = "nameoftheinputfile") {
     if (length(table(c("c","o")%in%tolower(names(elecount))  )  )==1) {
       if(length(grep("n",x,ignore.case = T))==0) {
         if (elecount['C']>7 & length(grep("CCCC",x))==1 & length(grep("C2",x))!=1  ) { # long carbon but not aromatic or cyclic.
+
           print(elecount['O'])
+          
           if (elecount['O']==2) {
             print(x)
             dlen <- length(strsplit(x,"=")[[1]])-2
